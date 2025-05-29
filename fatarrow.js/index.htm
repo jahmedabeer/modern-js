@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>This keyword</title>
+</head>
+
+<body>
+    <input type="text" id="inputField" placeholder="Type something here...">
+    <p class="instantResult"></p>
+    <p class="finalResult"></p>
+    <script>
+        const inputField = document.getElementById('inputField'),
+            instantResult = document.querySelector('.instantResult'),
+            finalResult = document.querySelector('.finalResult');
+
+        /*
+        function updateResults() {
+            instantResult.textContent = this.value;
+            setTimeout(function () {
+                finalResult.textContent = `Final Result: ${this.value}`; // Using 'this' here refers to the global object
+            }, 2000);
+        }
+        inputField.addEventListener('keyup', updateResults)
+        */
+
+        // arrow function doesn't have its own 'this', it uses the 'this' from the surrounding context or global object
+        const updateResults = () => {
+            instantResult.innerHTML = this.value; // 'this' refers to the global object here
+        }
+        inputField.addEventListener('keyup', updateResults);
+
+    </script>
+</body>
+
+</html>
