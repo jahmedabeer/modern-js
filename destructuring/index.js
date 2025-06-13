@@ -8,6 +8,9 @@ const user = {
         field: 'Computer Science',
         year: 2015
     },
+    log: function () {
+        console.log(`User: ${this.name}, Age: ${this.age}`);
+    }
 }
 
 var name = user['name']; // old way
@@ -20,6 +23,11 @@ const { education: { degree } } = user;
 
 const { education: { degree: userDegree } = {} } = user; // if education is undefined, it will default to an empty object
 // console.log(userDegree);
+
+// get method from object
+const { log } = user
+const userLog = log.bind(user)
+userLog()
 
 
 // array destructuring
